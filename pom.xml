@@ -246,24 +246,21 @@
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<version>2.8</version>
 				<configuration>
-					<configuration>
-						<skip>false</skip>
-						<pde>true</pde>
-						<buildcommands>
-							<buildcommand>org.eclipse.jdt.core.javabuilder</buildcommand>
-							<buildcommand>org.eclipse.pde.ManifestBuilder</buildcommand>
-							<buildcommand>org.eclipse.pde.SchemaBuilder</buildcommand>
-						</buildcommands>
-						<projectnatures>
-							<projectnature>org.eclipse.pde.PluginNature</projectnature>
-							<projectnature>org.eclipse.jdt.core.javanature</projectnature>
-						</projectnatures>
-						<classpathContainers>
-							<classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
-							<!-- <classpathContainer>org.eclipse.pde.core.requiredPlugins</classpathContainer> -->
-						</classpathContainers>
-					</configuration>
-
+					<skip>false</skip>
+					<pde>true</pde>
+					<buildcommands>
+						<buildcommand>org.eclipse.jdt.core.javabuilder</buildcommand>
+						<buildcommand>org.eclipse.pde.ManifestBuilder</buildcommand>
+						<buildcommand>org.eclipse.pde.SchemaBuilder</buildcommand>
+					</buildcommands>
+					<projectnatures>
+						<projectnature>org.eclipse.pde.PluginNature</projectnature>
+						<projectnature>org.eclipse.jdt.core.javanature</projectnature>
+					</projectnatures>
+					<classpathContainers>
+						<classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
+						<!-- <classpathContainer>org.eclipse.pde.core.requiredPlugins</classpathContainer> -->
+					</classpathContainers>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -315,6 +312,12 @@
 								<include>MANIFEST.MF</include>
 							</includes>
 						</fileset>
+						<fileset>
+							<directory>OSGI-INF</directory>
+							<includes>
+								<include>serviceComponents.xml</include>
+							</includes>
+						</fileset>
 					</filesets>
 				</configuration>
 			</plugin>
@@ -336,19 +339,6 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>OSGI-INF</directory>
-							<includes>
-								<include>serviceComponents.xml</include>
-							</includes>
-						</fileset>
-					</filesets>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

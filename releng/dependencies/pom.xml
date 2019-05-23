@@ -27,8 +27,9 @@
                         </goals>
                         <inherited>false</inherited>
                         <configuration>
-
+                            <copyPom>true</copyPom>
                             <useRepositoryLayout>true</useRepositoryLayout>
+                            <includeScope>runtime</includeScope>
                         </configuration>
                     </execution>
                 </executions>
@@ -47,7 +48,7 @@
                         <inherited>false</inherited>
                         <configuration>
                             <mavenRepository>${project.build.directory}/dependency</mavenRepository>
-                            <obrRepository>target/repository.xml</obrRepository>
+                            <obrRepository>${project.build.directory}/repository.xml</obrRepository>
                         </configuration>
                     </execution>
                 </executions>
@@ -690,18 +691,6 @@
         <dependency>
             <groupId>org.eclipse.equinox.http</groupId>
             <artifactId>servlet</artifactId>
-            <scope>compile</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>*</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.servicemix.bundles</groupId>
-            <artifactId>org.apache.servicemix.bundles.javax-inject</artifactId>
             <scope>compile</scope>
             <exclusions>
                 <exclusion>
